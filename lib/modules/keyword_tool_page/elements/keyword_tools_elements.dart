@@ -4,27 +4,24 @@ import 'package:dart_seo_robot/modules/shared/classes/navigator.dart';
 import 'package:dart_seo_robot/modules/shared/utils/delay.dart';
 import 'package:puppeteer/puppeteer.dart';
 
-class RapidTagsElements {
+class KeywordToolsElements {
   late ElementHandle inputKeywordEl;
-  late ElementHandle searchButtonElXpath;
+  late ElementHandle searchButtonEl;
   late ElementHandle resultingKeywordsDivEl;
 
   Future<void> _initialize() async {
     await Time.delay(2);
-    inputKeywordEl = await Navigator()
-        .getElementByXpath("/html/body/form/div/div[1]/label/input");
+    inputKeywordEl = await Navigator().getElementByXpath(
+        "/html/body/div[2]/main/div[1]/div/div/div/div/div/div/div[3]/div/form/div/div[1]/input");
 
-    searchButtonElXpath = await Navigator()
-        .getElementByXpath("/html/body/form/div/div[1]/label/button");
-
-    resultingKeywordsDivEl = await Navigator()
-        .getElementByXpath("/html/body/form/div/div[2]/div/div[1]");
+    searchButtonEl = await Navigator().getElementByXpath(
+        "/html/body/div[2]/main/div[1]/div/div/div/div/div/div/div[3]/div/form/div/div[3]/button");
   }
 
   Future<void> _searchKeyWord() async {
     try {
       await inputKeywordEl.type(Config.searchKey);
-      await searchButtonElXpath.click();
+      await searchButtonEl.click();
     } catch (e, s) {
       print("$e $s");
     }
@@ -32,22 +29,23 @@ class RapidTagsElements {
 
   Future<void> _getKeywordsFromResult() async {
     try {
-      await Time.delay(3);
+      await Time.delay(4);
+
+      resultingKeywordsDivEl = await Navigator().getElementByXpath(
+          "/html/body/div[2]/main/div/div/div/div/div[2]/div/div[4]/div[1]/div/div/table/tbody");
 
       final result =
           List<String>.from(await resultingKeywordsDivEl.evaluate<List>('''
 node => {
   let keywords = [];
-  const elements = node.children;
-
-  for(let i = 0; i<elements.length; i ++){
-    keywords.push(elements[i].textContent);
+  for(let i = 0; i<10; i++){
+      keywords.push(node.children[i].children[1].innerText);
   }
 
   return keywords;
 }''').then((value) => value as List));
 
-      CoreStore.rapidTagsKeywords.addAll(result);
+      CoreStore.keywordToolsKeywords.addAll(result);
     } catch (e, s) {
       print("$e $s");
     }
