@@ -35,7 +35,7 @@ class Navigator {
   }
 
   /// Method to find an `ElementHandle` by xpath.
-  Future<ElementHandle> getElementByXpath(String xpath) async {
+  Future<ElementHandle> getElement(String xpath) async {
     late ElementHandle element;
 
     try {

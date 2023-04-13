@@ -2,29 +2,31 @@ import 'package:dart_seo_robot/modules/config.dart';
 import 'package:dart_seo_robot/modules/core/store/corestore.dart';
 import 'package:dart_seo_robot/modules/shared/classes/navigator.dart';
 import 'package:dart_seo_robot/modules/shared/utils/delay.dart';
+import 'package:dart_seo_robot/modules/shared/utils/evaluate_enum.dart';
+import 'package:dart_seo_robot/modules/shared/utils/xpaths_enum.dart';
 import 'package:puppeteer/puppeteer.dart';
 
 class RapidTagsElements {
   late ElementHandle inputKeywordEl;
-  late ElementHandle searchButtonElXpath;
+  late ElementHandle searchButtonEl;
   late ElementHandle resultingKeywordsDivEl;
 
   Future<void> _initialize() async {
     await Time.delay(2);
-    inputKeywordEl = await Navigator()
-        .getElementByXpath("/html/body/form/div/div[1]/label/input");
+    inputKeywordEl =
+        await Navigator().getElement(Xpaths.inputKeywordElRapid.value);
 
-    searchButtonElXpath = await Navigator()
-        .getElementByXpath("/html/body/form/div/div[1]/label/button");
+    searchButtonEl =
+        await Navigator().getElement(Xpaths.searchButtonElRapid.value);
 
-    resultingKeywordsDivEl = await Navigator()
-        .getElementByXpath("/html/body/form/div/div[2]/div/div[1]");
+    resultingKeywordsDivEl =
+        await Navigator().getElement(Xpaths.resultingKeywordsDivElRapid.value);
   }
 
   Future<void> _searchKeyWord() async {
     try {
       await inputKeywordEl.type(Config.searchKey);
-      await searchButtonElXpath.click();
+      await searchButtonEl.click();
     } catch (e, s) {
       print("$e $s");
     }
@@ -34,18 +36,9 @@ class RapidTagsElements {
     try {
       await Time.delay(3);
 
-      final result =
-          List<String>.from(await resultingKeywordsDivEl.evaluate<List>('''
-node => {
-  let keywords = [];
-  const elements = node.children;
-
-  for(let i = 0; i<elements.length; i ++){
-    keywords.push(elements[i].textContent);
-  }
-
-  return keywords;
-}''').then((value) => value as List));
+      final result = List<String>.from(await resultingKeywordsDivEl
+          .evaluate<List>(Evaluates.getRapidTagsResult.value)
+          .then((value) => value as List));
 
       CoreStore.rapidTagsKeywords.addAll(result);
     } catch (e, s) {
