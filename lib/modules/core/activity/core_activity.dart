@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dart_seo_robot/modules/keyword_tool_page/activity/keyword_tool_activity.dart';
 import 'package:dart_seo_robot/modules/rapid_tags_page/activity/rapid_tags_activity.dart';
+import 'package:dart_seo_robot/modules/shared/bot/bot.dart';
 import 'package:dart_seo_robot/modules/shared/classes/navigator.dart';
 
 class CoreActivity {
@@ -9,8 +10,7 @@ class CoreActivity {
     try {
       await RapidTagsActivity().build();
       await KeywordToolActivity().build();
-      await Navigator().closePage();
-      exit(0);
+      await Bot.destroy();
     } catch (error, stackTrace) {
       print("$error $stackTrace");
     }

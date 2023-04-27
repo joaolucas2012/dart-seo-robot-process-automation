@@ -1,18 +1,26 @@
 import 'package:dart_seo_robot/modules/config.dart';
 import 'package:dart_seo_robot/modules/core/store/corestore.dart';
 import 'package:dart_seo_robot/modules/shared/classes/navigator.dart';
+import 'package:dart_seo_robot/modules/shared/interfaces/activity_interface.dart';
 import 'package:dart_seo_robot/modules/shared/utils/delay.dart';
 import 'package:dart_seo_robot/modules/shared/utils/evaluate_enum.dart';
 import 'package:dart_seo_robot/modules/shared/utils/xpaths_enum.dart';
 import 'package:puppeteer/puppeteer.dart';
 
-class RapidTagsElements {
+class RapidTagsElements extends Activity {
   late ElementHandle inputKeywordEl;
   late ElementHandle searchButtonEl;
   late ElementHandle resultingKeywordsDivEl;
 
+  @override
+  Future<void> build() async {
+    await _initialize();
+    await _searchKeyWord();
+    await _getKeywordsFromResult();
+  }
+
   Future<void> _initialize() async {
-    await Time.delay(2);
+    await delay(2);
     inputKeywordEl =
         await Navigator().getElement(Xpaths.inputKeywordElRapid.value);
 
@@ -34,7 +42,7 @@ class RapidTagsElements {
 
   Future<void> _getKeywordsFromResult() async {
     try {
-      await Time.delay(3);
+      await delay(3);
 
       final result = List<String>.from(await resultingKeywordsDivEl
           .evaluate<List>(Evaluates.getRapidTagsResult.value)
@@ -44,11 +52,5 @@ class RapidTagsElements {
     } catch (e, s) {
       print("$e $s");
     }
-  }
-
-  Future<void> build() async {
-    await _initialize();
-    await _searchKeyWord();
-    await _getKeywordsFromResult();
   }
 }

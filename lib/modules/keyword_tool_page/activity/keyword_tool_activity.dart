@@ -4,13 +4,13 @@ import 'package:dart_seo_robot/modules/shared/classes/navigator.dart';
 import 'package:dart_seo_robot/modules/shared/interfaces/activity_interface.dart';
 
 class KeywordToolActivity extends Activity {
-  Future<void> _doActionsInKeywordTools() async {
-    await Navigator().navigateTo(Config.urlKeywordTools);
-    await KeywordToolsElements().build();
-  }
-
   @override
   Future<void> build() async {
     await _doActionsInKeywordTools();
+  }
+
+  Future<void> _doActionsInKeywordTools() async {
+    await Navigator().navigateTo(Config.urlKeywordTools);
+    await KeywordToolsElements().build();
   }
 }

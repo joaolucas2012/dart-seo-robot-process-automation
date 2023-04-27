@@ -30,7 +30,7 @@ class Navigator {
     final b = browser;
     final page = (await b.pages)[0];
     await page.goto("$url", wait: Until.domContentLoaded);
-    await Time.delay(2);
+    await delay(2);
     CoreStore.currentPage = CoreStore.currentPage ?? page;
   }
 

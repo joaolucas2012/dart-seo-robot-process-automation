@@ -18,7 +18,7 @@ class KeywordToolsElements {
   }
 
   Future<void> _initialize() async {
-    await Time.delay(2);
+    await delay(2);
     inputKeywordEl =
         await Navigator().getElement(Xpaths.inputKeywordElTools.value);
 
@@ -37,7 +37,7 @@ class KeywordToolsElements {
 
   Future<void> _getKeywordsFromResult() async {
     try {
-      await Time.delay(4);
+      await delay(4);
 
       resultingKeywordsDivEl = await Navigator()
           .getElement(Xpaths.resultingKeywordsDivElTools.value);
