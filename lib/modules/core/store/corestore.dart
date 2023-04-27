@@ -1,7 +1,10 @@
+import 'package:dart_seo_robot/modules/shared/utils/log_type.dart';
 import 'package:puppeteer/puppeteer.dart';
 
 class CoreStore {
-  static late Page currentPage;
-  static late Map<String, dynamic> data = {};
-  static late List<String> rapidTagsKeywords = [];
+  static Page? currentPage;
+  static Map<String, dynamic> data = {};
+  static List<String> rapidTagsKeywords = [];
+  static List<String> keywordToolsKeywords = [];
+  static Map<LogType, dynamic> possiblePrints = {};
 }
