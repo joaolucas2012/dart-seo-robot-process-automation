@@ -1,4 +1,3 @@
-import 'package:dart_seo_robot/modules/config.dart';
 import 'package:dart_seo_robot/modules/core/store/corestore.dart';
 import 'package:dart_seo_robot/modules/shared/utils/delay.dart';
 import 'package:puppeteer/puppeteer.dart';
@@ -16,7 +15,7 @@ class Navigator {
     browser = (CoreStore.currentPage != null)
         ? CoreStore.currentPage!.browser
         : await puppeteer.launch(
-            headless: Config.isHeadless,
+            headless: CoreStore.isHeadless,
             defaultViewport: null,
             args: [
                 '--disable-setuid-sandbox',
