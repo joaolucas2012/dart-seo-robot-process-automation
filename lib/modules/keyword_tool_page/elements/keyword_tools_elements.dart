@@ -1,4 +1,3 @@
-import 'package:dart_seo_robot/modules/config.dart';
 import 'package:dart_seo_robot/modules/core/store/corestore.dart';
 import 'package:dart_seo_robot/modules/shared/classes/navigator.dart';
 import 'package:dart_seo_robot/modules/shared/interfaces/activity_interface.dart';
@@ -30,7 +29,7 @@ class KeywordToolsElements extends Activity {
 
   Future<void> _searchKeyWord() async {
     try {
-      await inputKeywordEl.type(Config.searchKey);
+      await inputKeywordEl.type(CoreStore.keywordEntry);
       await searchButtonEl.click();
     } catch (e, s) {
       printError("$e $s");
