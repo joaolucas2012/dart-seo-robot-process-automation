@@ -5,12 +5,12 @@ import 'package:dart_seo_robot/modules/shared/utils/website_links.dart';
 
 class RapidTagsActivity extends Activity {
   @override
-  Future<void> build() async {
+  Future<void> start() async {
     await _doActionsInRapidTags();
   }
 
   Future<void> _doActionsInRapidTags() async {
     await Navigator().navigateTo(WebsiteLinks.urlRapidTags.value);
-    await RapidTagsElements().build();
+    await RapidTagsElements().start();
   }
 }

@@ -5,12 +5,12 @@ import 'package:dart_seo_robot/modules/shared/utils/website_links.dart';
 
 class KeywordToolActivity extends Activity {
   @override
-  Future<void> build() async {
+  Future<void> start() async {
     await _doActionsInKeywordTools();
   }
 
   Future<void> _doActionsInKeywordTools() async {
     await Navigator().navigateTo(WebsiteLinks.urlKeywordTool.value);
-    await KeywordToolsElements().build();
+    await KeywordToolsElements().start();
   }
 }
