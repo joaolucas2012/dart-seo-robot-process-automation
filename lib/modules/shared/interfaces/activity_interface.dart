@@ -1,3 +1,3 @@
 abstract class Activity {
-  Future<void> build();
+  Future<void> start();
 }

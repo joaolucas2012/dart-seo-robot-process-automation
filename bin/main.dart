@@ -2,5 +2,5 @@
 import 'package:dart_seo_robot/modules/core/activity/core_activity.dart';
 
 Future<void> main() async {
-  await CoreActivity().build();
+  await CoreActivity().start();
 }
