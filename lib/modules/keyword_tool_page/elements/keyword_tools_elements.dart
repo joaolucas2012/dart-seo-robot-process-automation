@@ -1,10 +1,10 @@
 import 'package:dart_seo_robot/modules/shared/utils/store/corestore.dart';
 import 'package:dart_seo_robot/modules/shared/classes/navigator.dart';
 import 'package:dart_seo_robot/modules/shared/interfaces/activity_interface.dart';
-import 'package:dart_seo_robot/modules/shared/utils/color_handler.dart';
-import 'package:dart_seo_robot/modules/shared/utils/delay.dart';
-import 'package:dart_seo_robot/modules/shared/utils/evaluate_enum.dart';
-import 'package:dart_seo_robot/modules/shared/utils/xpaths_enum.dart';
+import 'package:dart_seo_robot/modules/shared/utils/functions/print_colored.dart';
+import 'package:dart_seo_robot/modules/shared/utils/functions/delay.dart';
+import 'package:dart_seo_robot/modules/shared/utils/enumerators/evaluate_enum.dart';
+import 'package:dart_seo_robot/modules/shared/utils/enumerators/xpaths_enum.dart';
 import 'package:puppeteer/puppeteer.dart';
 
 class KeywordToolsElements extends Activity {

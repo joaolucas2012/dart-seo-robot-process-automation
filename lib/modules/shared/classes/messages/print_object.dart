@@ -1,7 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 
-import 'package:dart_seo_robot/modules/shared/utils/color_handler.dart';
-import 'package:dart_seo_robot/modules/shared/utils/print_types_enum.dart';
+import 'package:dart_seo_robot/modules/shared/utils/functions/print_colored.dart';
+import 'package:dart_seo_robot/modules/shared/utils/enumerators/print_types_enum.dart';
 
 class PrintObject {
   final String message;

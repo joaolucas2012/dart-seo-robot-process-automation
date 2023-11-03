@@ -1,7 +1,7 @@
 import 'package:dart_seo_robot/modules/keyword_tool_page/elements/keyword_tools_elements.dart';
 import 'package:dart_seo_robot/modules/shared/classes/navigator.dart';
 import 'package:dart_seo_robot/modules/shared/interfaces/activity_interface.dart';
-import 'package:dart_seo_robot/modules/shared/utils/website_links.dart';
+import 'package:dart_seo_robot/modules/shared/utils/enumerators/website_links.dart';
 
 class KeywordToolActivity extends Activity {
   @override

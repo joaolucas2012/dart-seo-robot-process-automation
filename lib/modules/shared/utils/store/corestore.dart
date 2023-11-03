@@ -1,4 +1,4 @@
-import 'package:dart_seo_robot/modules/shared/utils/log_type.dart';
+import 'package:dart_seo_robot/modules/shared/utils/enumerators/log_type.dart';
 import 'package:puppeteer/puppeteer.dart';
 
 class CoreStore {

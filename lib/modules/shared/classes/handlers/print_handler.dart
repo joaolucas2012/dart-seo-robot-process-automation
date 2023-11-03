@@ -4,8 +4,8 @@ import 'package:chalkdart/chalk.dart';
 import 'package:dart_seo_robot/modules/shared/utils/store/corestore.dart';
 import 'package:dart_seo_robot/modules/shared/classes/data/log_information.dart';
 import 'package:dart_seo_robot/modules/shared/classes/messages/print_object.dart';
-import 'package:dart_seo_robot/modules/shared/utils/log_type.dart';
-import 'package:dart_seo_robot/modules/shared/utils/print_types_enum.dart';
+import 'package:dart_seo_robot/modules/shared/utils/enumerators/log_type.dart';
+import 'package:dart_seo_robot/modules/shared/utils/enumerators/print_types_enum.dart';
 
 class PrintHandler {
   /// Method to add the possible PrintObjects in ``[CoreStore.possiblePrints]``

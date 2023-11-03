@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:dart_seo_robot/modules/shared/utils/store/corestore.dart';
 import 'package:dart_seo_robot/modules/shared/interfaces/activity_interface.dart';
-import 'package:dart_seo_robot/modules/shared/utils/color_handler.dart';
-import 'package:dart_seo_robot/modules/shared/utils/headless_options_enum.dart';
+import 'package:dart_seo_robot/modules/shared/utils/functions/print_colored.dart';
+import 'package:dart_seo_robot/modules/shared/utils/enumerators/headless_options_enum.dart';
 
 class GetEntriesActivity implements Activity {
   @override
