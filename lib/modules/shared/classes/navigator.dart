@@ -1,4 +1,4 @@
-import 'package:dart_seo_robot/modules/core/store/corestore.dart';
+import 'package:dart_seo_robot/modules/shared/utils/store/corestore.dart';
 import 'package:dart_seo_robot/modules/shared/utils/delay.dart';
 import 'package:puppeteer/puppeteer.dart';
 

@@ -6,10 +6,6 @@ import 'package:dart_seo_robot/modules/shared/utils/color_handler.dart';
 
 class CoreActivity {
   Future<void> start() async {
-    await _runCoreActivity();
-  }
-
-  Future<void> _runCoreActivity() async {
     try {
       await GetEntriesActivity().start();
       await KeywordToolActivity().start();

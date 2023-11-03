@@ -1,6 +1,6 @@
 // ignore_for_file: depend_on_referenced_packages
 
-import 'package:dart_seo_robot/modules/core/store/corestore.dart';
+import 'package:dart_seo_robot/modules/shared/utils/store/corestore.dart';
 import 'package:dart_seo_robot/modules/shared/classes/data/log_information.dart';
 import 'package:dart_seo_robot/modules/shared/classes/handlers/print_handler.dart';
 import 'package:dart_seo_robot/modules/shared/utils/color_handler.dart';
